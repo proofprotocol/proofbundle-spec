@@ -12,7 +12,7 @@
 
 ## Abstract
 
-This specification defines the ProofBundle™: the portable, self-contained, independently verifiable evidence artifact produced under the Proof Protocol™. A ProofBundle™ is the atomic unit of proof in the Proof Economy™. It contains everything a third party needs to verify a claim independently — with no chain, no account, no service call required.
+This specification defines the ProofBundle™: the portable, self-contained, independently verifiable evidence artifact produced under the Proof Protocol™. A ProofBundle™ is the atomic unit of proof in the Proof Economy™. It contains everything a third party needs to verify a claim independently - with no chain, no account, no service call required.
 
 A ProofBundle™ is not a receipt. A receipt proves an action was observed. A ProofBundle™ proves a product or agent behaved as claimed under independently witnessed, pre-committed conditions.
 
@@ -47,11 +47,11 @@ Vendors publish security claims. Buyers cannot verify them. The structural probl
 
 The ProofBundle™ solves this structurally. It is:
 
-- **Self-contained** — everything needed to verify is inside the bundle
-- **Offline-verifiable** — no network call, no service, no chain required
-- **Independently witnessed** — assembled by a party outside the vendor trust boundary
-- **Tamper-evident** — cryptographic signatures and hash chains detect any alteration
-- **Timestamped** — NIST Randomness Beacon pre-execution commitment proves timing
+- **Self-contained** - everything needed to verify is inside the bundle
+- **Offline-verifiable** - no network call, no service, no chain required
+- **Independently witnessed** - assembled by a party outside the vendor trust boundary
+- **Tamper-evident** - cryptographic signatures and hash chains detect any alteration
+- **Timestamped** - NIST Randomness Beacon pre-execution commitment proves timing
 
 A ProofBundle™ is the answer to the question every buyer, auditor, and regulator needs to ask: how do I know this is true and that it was true before you knew I was asking?
 
@@ -59,21 +59,21 @@ A ProofBundle™ is the answer to the question every buyer, auditor, and regulat
 
 ## 2. Terminology
 
-**ProofBundle™** — the complete portable evidence artifact defined by this specification.
+**ProofBundle™** - the complete portable evidence artifact defined by this specification.
 
-**Receipt** — a signed record of a single observed action, produced by a mediator outside the agent trust boundary. Receipts are independently verifiable but do not constitute a ProofBundle™ alone.
+**Receipt** - a signed record of a single observed action, produced by a mediator outside the agent trust boundary. Receipts are independently verifiable but do not constitute a ProofBundle™ alone.
 
-**Audit Packet** — the evidence bundle format defined by Pipelock (pipelab.org/schemas/audit-packet-v0.schema.json). The ProofBundle™ extends this format with Proof Protocol™ anchoring fields.
+**Audit Packet** - the evidence bundle format defined by Pipelock (pipelab.org/schemas/audit-packet-v0.schema.json). The ProofBundle™ extends this format with Proof Protocol™ anchoring fields.
 
-**NIST Beacon Pulse** — a cryptographically signed random value published every 60 seconds by the National Institute of Standards and Technology at beacon.nist.gov. Used as the pre-execution commitment anchor.
+**NIST Beacon Pulse** - a cryptographically signed random value published every 60 seconds by the National Institute of Standards and Technology at beacon.nist.gov. Used as the pre-execution commitment anchor.
 
-**ProofRegister™** — the canonical public append-only ledger of ProofBundle™ records operated by HACKERverse at proofregister.com.
+**ProofRegister™** - the canonical public append-only ledger of ProofBundle™ records operated by HACKERverse at proofregister.com.
 
-**ProofStamp™** — the certification mark issued by HACKERverse attesting that a ProofBundle™ was independently reviewed and the product or agent behind it meets the Proof Protocol™ certification criteria.
+**ProofStamp™** - the certification mark issued by HACKERverse attesting that a ProofBundle™ was independently reviewed and the product or agent behind it meets the Proof Protocol™ certification criteria.
 
-**Root Hash** — the SHA-256 hash of the final receipt in a chain. Serves as the cryptographic fingerprint of the complete evidence chain.
+**Root Hash** - the SHA-256 hash of the final receipt in a chain. Serves as the cryptographic fingerprint of the complete evidence chain.
 
-**Witness** — an independent party with no commercial relationship to the vendor under test who observes and attests to the execution conditions of a benchmark run.
+**Witness** - an independent party with no commercial relationship to the vendor under test who observes and attests to the execution conditions of a benchmark run.
 
 ---
 
@@ -271,7 +271,7 @@ The ProofBundle™ extends the Pipelock Audit Packet v0 schema (pipelab.org/sche
 
 The `proof_protocol` block in `packet.json` is the extension point. All base Audit Packet v0 fields are preserved and required. The ProofBundle™ adds NIST anchoring, witness attestation, benchmark metadata, PES metrics, and optional ProofRegister™ and ProofStamp™ fields.
 
-Pipelock receipts conforming to the Action Receipt Format (pipelab.org/learn/action-receipt-spec/) are valid ProofBundle™ receipt inputs by design. The `verifier.root_hash` field in the Audit Packet v0 is explicitly designed for anchoring to external transparency logs — ProofRegister™ is that log.
+Pipelock receipts conforming to the Action Receipt Format (pipelab.org/learn/action-receipt-spec/) are valid ProofBundle™ receipt inputs by design. The `verifier.root_hash` field in the Audit Packet v0 is explicitly designed for anchoring to external transparency logs - ProofRegister™ is that log.
 
 Receipt validity is independent of ProofRegister™. A ProofBundle™ verifies offline. ProofRegister™ provides the permanent public record. ProofStamp™ certifies the product behind the bundle.
 
@@ -289,7 +289,7 @@ Submitting a ProofBundle™ to ProofRegister™:
 
 ProofRegister™ anchoring is optional for bundle validity but required for ProofStamp™ certification.
 
-Enterprise deployments running ProofServer may anchor internal bundles to ProofRegister™. Internal bundles do not require ProofStamp™ authorization to be valid — they become ProofStamp™-eligible only when submitted for certification review.
+Enterprise deployments running ProofServer may anchor internal bundles to ProofRegister™. Internal bundles do not require ProofStamp™ authorization to be valid - they become ProofStamp™-eligible only when submitted for certification review.
 
 ---
 
@@ -304,7 +304,7 @@ ProofStamp™ certification requires:
 4. Confirmation that the benchmark meets PP-SPEC-003 conformance requirements
 5. Issuance of a ProofStamp™ authorization token
 
-ProofStamp™ certifies the product or agent behind the bundle — not the bundle itself. A bundle is cryptographically self-verifying. The stamp means an independent party reviewed it and staked their mark on it.
+ProofStamp™ certifies the product or agent behind the bundle - not the bundle itself. A bundle is cryptographically self-verifying. The stamp means an independent party reviewed it and staked their mark on it.
 
 ---
 
@@ -345,4 +345,4 @@ Castle Rock, Colorado
 
 ---
 
-*CC BY 4.0 — Attribution to Craig Ellrod / Nebulonium, Inc. required.*
+*CC BY 4.0 - Attribution to Craig Ellrod / Nebulonium, Inc. required.*
