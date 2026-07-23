@@ -75,7 +75,7 @@ A ProofBundle™ is the answer to the question every buyer, auditor, and regulat
 
 **Root Hash** - the SHA-256 hash of the final receipt in a chain. Serves as the cryptographic fingerprint of the complete evidence chain.
 
-**Witness** - an independent party with no commercial relationship to the vendor under test who observes and attests to the execution conditions of a benchmark run.
+**Witness** - a party satisfying both eligibility gates of PP-SPEC-005 Section 2 who observes and attests to the execution conditions of a benchmark run. The witness operates outside the trust boundary of the System Under Test's operator, and its compensation does not vary with the verdict.
 
 ---
 
@@ -209,7 +209,7 @@ The NIST Randomness Beacon pulse retrieved immediately before execution began. M
 }
 ```
 
-The witness must have no commercial relationship with the vendor under test. Witness identity and affiliation must be disclosed.
+The witness must satisfy both eligibility gates of PP-SPEC-005 Section 2. Witness identity, affiliation, any commercial relationship with the System Under Test's operator, and any other roles held for the run must be disclosed.
 
 ---
 
@@ -260,7 +260,7 @@ Any party can verify a ProofBundle™ independently with no external service:
 3. Confirm verifier output matches `verifier.txt`
 4. Confirm `verifier.root_hash` matches the root hash in `proofregister.json` if present
 5. Retrieve the NIST Beacon pulse at `proof_protocol.nist_pulse.pulse_uri` and confirm it matches `nist-pulse.json`
-6. Confirm `witness.json` discloses a witness with no commercial relationship to the vendor
+6. Confirm `witness.json` discloses a witness satisfying both eligibility gates of PP-SPEC-005 Section 2
 7. If `proofstamp.json` is present, verify the authorization signature against the HACKERverse published public key at proofstamp.io
 
 Steps 1-6 require no network call if the bundle is self-contained. Step 7 requires the HACKERverse public key which is published at proofstamp.io.
@@ -317,8 +317,8 @@ A ProofBundle™ is conformant with this specification if:
 - `packet.json` validates against the PP-SPEC-003 schema
 - `evidence.jsonl` verifies against the declared `signer_key` with verdict `valid`
 - `nist-pulse.json` contains a valid NIST Beacon pulse predating `run.started_at`
-- `witness.json` discloses a witness with no commercial relationship to the vendor
-- PES is calculated as `Blocked / (Blocked + Missed) × 100` with OBSERVED and IRRELEVANT cases excluded from the denominator
+- `witness.json` discloses a witness satisfying both eligibility gates of PP-SPEC-005 Section 2: structurally outside the SUT operator's trust boundary, and compensated invariant to the verdict
+- Containment and Detection are calculated per PP-SPEC-006 over a denominator of BLOCKED + OBSERVED + MISSED, with only IRRELEVANT cases excluded, and both scores are present
 
 A ProofBundle™ that fails any of these requirements is not conformant regardless of what its producer claims.
 
