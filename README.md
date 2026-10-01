@@ -342,6 +342,19 @@ A ProofBundle™ that fails any of these requirements is not conformant regardle
 
 ---
 
+## Extensions
+
+ProofBundle objects MAY use the universal Proof Protocol `extensions` mechanism defined by **PP-SPEC-001**. Extension keys MUST use globally distinguishable namespaces; reverse-domain notation is RECOMMENDED.
+
+Vendor or domain metadata, evidence references, and supplemental artifact metadata MAY be carried in extensions. Extensions MUST NOT replace required bundle files, hashes, verifier fields, witness material, or validity data.
+
+A conforming implementation MUST be able to ignore an unknown extension and still evaluate this specification's core semantics. Extension-specific validation is supplemental and MUST remain distinguishable from core Proof Protocol conformance.
+
+> **Extensions enrich the object. They do not redefine the protocol.**
+
+---
+
+
 ## 12. Authors
 
 Craig Ellrod, Founder & CEO, Nebulonium, Inc. (d/b/a HACKERverse)  
