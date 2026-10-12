@@ -3,7 +3,7 @@
 **Document ID:** PP-SPEC-003  
 **Version:** 0.1 - Draft  
 **Status:** Draft  
-**License:** Greater Good Commercial License 1.0 (GGL-C-1.0); text CC BY-ND 4.0 under Part S. See LICENSE.md.
+**License:** Greater Good Commercial License 1.0 (GGL-C-1.0); text CC BY 4.0 under Part S. See LICENSE.md.
 **Maintained by:** Proof Economy™ Standards Alliance (PESA)  
 **Repository:** https://github.com/proofprotocol/proofbundle-spec  
 **Published:** 2026-07-13  
